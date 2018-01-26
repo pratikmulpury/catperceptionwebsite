@@ -1,5 +1,4 @@
 
-
 body
 {
     background-image: url(Introductions/IndexPage/goldengate.jpg) ;
@@ -9,18 +8,36 @@ body
     background-repeat: no-repeat;
 
 }
+.buttons {
+    background-color: #4CAF50; /* Green */
+    border: outset;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+#licencestuff
+{
+
+     background-color: orange;
+}
 h1,h2,p,ul
 {
     font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
-    color:aliceblue
+    color:black
 }
 .center
 {
     text-align:center;
 }
-img.centeredimages
+.left
+{
+    text-align:left;
+}
+img.images
 {
   display:block;
-  margin-left:auto;
   margin-right:auto;
 }
