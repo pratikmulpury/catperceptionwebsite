@@ -1,0 +1,133 @@
+/* css Zen Garden default style v1.02 */
+/* css released under Creative Commons License - http://creativecommons.org/licenses/by-nc-sa/1.0/  */
+
+/* This file based on 'Tranquille' by Dave Shea */
+/* You may use this file as a foundation for any new work, but you may find it easier to start from scratch. */
+/* Not all elements are defined in this file, so you'll most likely want to refer to the xhtml as well. */
+
+/* Your images should be linked as if the CSS file sits in the same folder as the images. ie. no paths. */
+
+
+/* basic elements */
+
+html {
+        padding-left: 2%;
+        padding-right: 2g %;
+        background-color: #001A57; 
+
+	}
+body { 
+    background-image: linear-gradient(to bottom, rgba(128,128,128,.4) 0%,rgba(128,128,128,.4) 80%),url(zen1/camerontipoff.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+	font: 75% georgia, sans-serif;
+    float:left;
+	line-height: 1.88889;
+	margin: 0; 
+	padding: 0;
+	}
+p { 
+	margin-top: 0; 
+    color:white;
+    float: left;
+	}
+h3 { 
+    font:cursive;
+      color:cadetblue;
+    float: left;
+
+	}
+a:link { 
+    text-shadow: 3px 3px 6px orange;
+    color:green;
+	}
+a:visited { 
+    color:red
+	}
+    text-shadow: 3px 3px 6px purple;
+
+a:hover, a:focus, a:active { 
+        
+    text-shadow: 3px 3px 6px gold;
+
+
+	}
+abbr {
+
+	}
+
+
+/* specific divs */
+.page-wrapper { 
+    padding: 0 160px 0 100px;  
+    margin: 0; 
+	position:relative;
+
+	}
+.intro { 
+
+	}
+
+header h1 { 
+    color: white;
+    font-weight: bold;
+    border-style: solid;
+    border-color: red;
+
+
+	}
+header h2 { 
+    color: cadetblue;
+    font-weight: bold; 
+
+	}
+
+.sidebar {
+        height: 24%;
+        width: 100%;
+        position:relative;
+        z-index: auto;
+        background: bisque;
+        background-position: 700px 80px;
+        background-image: url(zen1/Duke.png);
+        background-repeat: no-repeat;
+        float: left;
+         text-align: justify;
+
+	}
+.sidebar h3{
+        height: 24%;
+        width: 100%;
+        position:relative;
+
+        float: left;
+
+	}
+.sidebar ul
+{
+    text-align: justify;
+    display:block;
+    margin:0;
+    padding:0;
+    float: left;
+
+}
+
+.sidebar li{
+        text-align: justify;
+
+  display:block;
+  margin:0;
+  padding:0;
+  float:left;
+  list-style:none;
+
+}
+.wrapper
+{
+     display:block;
+    float:left;
+    text-align: justify;
+    white-space: nowrap;
+    overflow: hidden; 
+}
