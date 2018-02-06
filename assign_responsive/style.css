@@ -1,0 +1,65 @@
+.center
+{
+    text-align: center;
+}
+@media only screen and (min-width:576px) 
+{
+    body {
+        background-color: blue;
+
+    }
+}
+@media only screen and (min-width:768px)
+{
+    body 
+    {
+        background-color: skyblue;
+    }
+}
+
+@media only screen and (min-width:992px)
+{
+    body 
+    {
+        background-color: orange;
+    }
+}
+@media only screen and (min-width:1200px)
+{
+    body {
+        background: linear-gradient(to top, #2c3e50, #3498db);
+         background-size: 110%;
+        background-repeat: no-repeat;
+        height: 100%;
+    }
+}
+a
+{
+    color: indianred;
+}
+p
+{
+    color: darkseagreen; 
+}
+img 
+{
+    position: relative;
+    max-width: 100%;
+    height: auto;
+}
+.jumbotron h1
+{
+    position: relative;
+    display: block;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    
+}
+.jumbotron
+{
+    background-image: url(redwoods.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
