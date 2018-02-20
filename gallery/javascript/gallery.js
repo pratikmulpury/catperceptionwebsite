@@ -20,7 +20,8 @@ $(function() {
     var galleryimages = [];
 
     function setup(){
-
+   
+        $
         $.ajaxSetup({'async': false});
         $.ajax({
             type: 'GET',
@@ -64,6 +65,7 @@ $(function() {
         slideshowdisplay(displayedimg);
         setupgallerydisplay();
     }
+
 
     function slideshowdisplay(imagenumber){
         var domElement = $('#slide');
@@ -153,9 +155,8 @@ $(function() {
             $("img[data-category='rackets']").hide();
         }
     }
-    function viewimage(enlargenedimage){
 
-    }  
+    
     /*
     $("#RacketCheckbox").click(function(){
         alert("The paragraph was clicked.");
@@ -196,5 +197,21 @@ $(function() {
     $("#BallCheckbox").click(function() {
         ballschecked = !ballschecked;
         gallerydisplay();
+    });
+    $("img[data-category[]").click(function()
+    {
+        var modalImg = $("#img01");
+        var modal = $("#myModal");
+
+
+        src = $(this).attr('src');
+        caption = $(this).attr('alt');
+        modal.style.display = "block";
+        modalImg.src = this.src;        
+        captionText.innerHTML = this.alt
+
+    });
+    $(span).click(function(){
+        modal.style.display = "none";
     });
 }); 
