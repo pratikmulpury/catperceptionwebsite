@@ -2,7 +2,7 @@
 {
     "balls": [
         {
-            "url": "images/babolatball.JPG",
+            "url": "images/babolatball.jpg",
             "caption": "A Babolat Ball",
             "type":"balls"
         },
