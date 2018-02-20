@@ -1,3 +1,13 @@
+// Hello.
+//
+// This is JSHint, a tool that helps to detect errors and potential
+// problems in your JavaScript code.
+//
+// To start, simply enter some JavaScript anywhere on this page. Your
+// report will appear on the right side.
+//
+// Additionally, you can toggle specific options in the Configure
+// menu.
 /*
  * Slideshow+Gallery
  * @author Pratik Mulpury 
@@ -13,7 +23,6 @@ $(function() {
     var ballschecked = true;
     var racketschecked = true;
      //selected image in gallery
-    var enlargedimage = null;
     // current image to be display in slideshow
     var displayedimg = 0;
     var slideshowimages = [3];    
@@ -21,18 +30,8 @@ $(function() {
 
     function setup(){
    
-        $('body').append('<div id="myModal" class="modal"> <span class="close">&times; </span><img class="modal-content" id="img01"> <div id="caption"></div></div> ')
-        
-       
-
-        
-        
-          
-        
-          
-        
-
-
+        $('body').append('<div id="myModal" class="modal"> <span class="close">&times; </span><img class="modal-content" id="img01"> <div id="caption"></div></div> ');  
+  
         $.ajaxSetup({'async': false});
         $.ajax({
             type: 'GET',
@@ -211,14 +210,11 @@ $(function() {
     $("img[data-category]").click(function()
     {
         // Get the <span> element that closes the modal
-        var span = $(".close");
         var modalImg = $("#img01");
         var modal = $("#myModal");
         var captionText = $('#caption');
-        src = $(this).attr('src');
-        console.log(src);
-        caption = $(this).attr('alt');
-        console.log(modal);
+        var src = $(this).attr('src');
+
         modal.show();
         $("#myModal").css("display", "block");
         modalImg.attr("src", $(this).attr("src"));
