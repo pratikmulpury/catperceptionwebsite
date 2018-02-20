@@ -9,11 +9,11 @@ $(function() {
     var courts;
     var balls;
     // image categories to be displayed
-    var courtschecked =  false
-    var ballschecked = false;
-    var racketschecked = false;
+    var courtschecked =  true;
+    var ballschecked = true;
+    var racketschecked = true;
      //selected image in gallery
-    var enlargenedimage = null;
+    var enlargedimage = null;
     // current image to be display in slideshow
     var displayedimg = 0;
     var slideshowimages = [3];    
@@ -28,7 +28,7 @@ $(function() {
             dataType: "json",
             success: function (data) {
                 rackets = data;
-                slideshowimages[0] = '<img src="' + rackets.rackets[0].url + '"height = 200px width = 200px>>' +'</img>'
+                slideshowimages[0] = '<img src="' + rackets.rackets[0].url + '"height = 200px width = 200px>>' +'</img>';
             },
             error: function (req, status, err) {
                 console.log('ERROR loading data: ', err);
@@ -40,7 +40,7 @@ $(function() {
             dataType: "json",
             success: function (data) {
                 courts = data;
-                slideshowimages[1] = '<img src="' + courts.courts[1].url + '"height = 200px width = 200px>>' +'</img>'
+                slideshowimages[1] = '<img src="' + courts.courts[1].url + '"height = 200px width = 200px>>' +'</img>';
             },
             error: function (req, status, err) {
                 console.log('ERROR loading data: ', err);
@@ -58,10 +58,10 @@ $(function() {
                 console.log('ERROR loading data: ', err);
             }
         });   
-        $('#container2').append("<input id = 'RacketCheckbox'type='checkbox' name='tags' value='Racket'>Rackets <br>");
-        $('#container2').append("<input id = 'BallCheckbox' type='checkbox' name='tag' value='Balls'>Balls <br>");
-        $('#container2').append("<input id = 'CourtCheckbox'type='checkbox' name='tag' value='Courts'>Courts");
-        slideshowdisplay(displayedimg)
+        $('#container2').append("<input id = 'RacketCheckbox'type='checkbox' name='tags' value='Racket' checked >Rackets <br>");
+        $('#container2').append("<input id = 'BallCheckbox' type='checkbox' name='tag' value='Balls' checked>Balls <br>");
+        $('#container2').append("<input id = 'CourtCheckbox'type='checkbox' name='tag' value='Courts' checked>Courts");
+        slideshowdisplay(displayedimg);
         setupgallerydisplay();
     }
 
@@ -70,7 +70,6 @@ $(function() {
         // remove any existing links before adding the new ones
         domElement.empty();
         // add an image element
-        console.log(slideshowimages[imagenumber]);
         $('#slide').append(slideshowimages[imagenumber]);
     }
     function setupgallerydisplay()
@@ -85,7 +84,7 @@ $(function() {
                 balls = data;
                 for(var i = 0;i<balls.balls.length ; ++i)
                 {
-                    galleryimages[curgallerydisplay] = '<img src= "' + balls.balls[i].url +' alt="'+balls.balls[i].caption +'" data-category="'+balls.balls[i].type + '" height = 200px width = 200px>' + " </img>";
+                    galleryimages[curgallerydisplay] = '<img src= "' + balls.balls[i].url +'" alt="'+balls.balls[i].caption +'" data-category="'+balls.balls[i].type + '" height = 200px width = 200px>' + " </img>";
                     ++curgallerydisplay;
                 }
             },
@@ -101,7 +100,7 @@ $(function() {
                 rackets = data;
                 for(var i = 0;i<rackets.rackets.length ; ++i)
                 {
-                    galleryimages[curgallerydisplay] = '<img src= "' + courts.courts[i].url +' alt="'+rackets.rackets[i].caption +'" data-category="'+rackets.rackets[i].type + '" height = 200px width = 200px>' + " </img>";
+                    galleryimages[curgallerydisplay] = '<img src= "' + rackets.rackets[i].url +'" alt="'+rackets.rackets[i].caption +'" data-category="'+rackets.rackets[i].type + '" height = 200px width = 200px>' + " </img>";
                     ++curgallerydisplay;
                 }
             },
@@ -117,7 +116,7 @@ $(function() {
                 rackets = data;
                 for(var i = 0;i<courts.courts.length ; ++i)
                 {
-                    galleryimages[curgallerydisplay] = '<img src= "' + courts.courts[i].url +' alt="'+courts.courts[i].caption +'" data-category="'+courts.courts[i].type + '" height = 200px width = 200px>' + " </img>";
+                    galleryimages[curgallerydisplay] = '<img src= "' + courts.courts[i].url +'" alt="'+courts.courts[i].caption +'" data-category="'+courts.courts[i].type + '" height = 200px width = 200px>' + " </img>";
                     ++curgallerydisplay;
                 }
             },
@@ -125,12 +124,34 @@ $(function() {
                 console.log('ERROR loading data: ', err);
             }
         }); 
-
-        
+        for(var i = 0; i<galleryimages.length; ++i)
+        {
+            $('#container2').append(galleryimages[i]);
+        }
+        console.log(galleryimages[5]);
+        gallerydisplay();
     }
-    function gallerydisplay(){
+    function gallerydisplay()
+    {
+        if(courtschecked === true){
+            $("img[data-category='courts']").show();
+        }
+        else{
+            $("img[data-category='courts']").hide();
+        }
+        if (ballschecked === true){
+            $("img[data-category='balls']").show();
+        }
+        else{
+            $("img[data-category='balls']").hide();
 
-        
+        }
+        if(racketschecked === true){
+            $("img[data-category='rackets']").show();
+        }
+        else{
+            $("img[data-category='rackets']").hide();
+        }
     }
     function viewimage(enlargenedimage){
 
@@ -142,9 +163,9 @@ $(function() {
     */
     setup(); 
     $(".previous").click(function() {
-        if(displayedimg == 0)
+        if(displayedimg === 0)
         {
-            slideshowdisplay(displayedimg)
+            slideshowdisplay(displayedimg);
         }
         else
         {
@@ -153,9 +174,9 @@ $(function() {
         }
     });
     $(".next").click(function() {
-        if(displayedimg == 2)
+        if(displayedimg === 2)
         {
-            slideshowdisplay(displayedimg)
+            slideshowdisplay(displayedimg);
         }
         else
         {
@@ -163,15 +184,16 @@ $(function() {
             slideshowdisplay(displayedimg);
         }
     });
-    $(".RacketCheckbox").click(function() {
+    $("#RacketCheckbox").click(function() {
         racketschecked = !racketschecked;
+        console.log(racketschecked);
         gallerydisplay();
     });
-    $(".CourtCheckbox").click(function() {
+    $("#CourtCheckbox").click(function() {
         courtschecked = !courtschecked;
         gallerydisplay();
     });
-    $(".BallCheckbox").click(function() {
+    $("#BallCheckbox").click(function() {
         ballschecked = !ballschecked;
         gallerydisplay();
     });

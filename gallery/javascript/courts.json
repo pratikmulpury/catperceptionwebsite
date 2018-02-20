@@ -4,17 +4,17 @@
         {
             "url": "images/clay.jpg",
             "caption": "A Clay tennis court",
-            "type":"racket"
+            "type":"courts"
         },
         {
             "url": "images/grass.jpg",
             "caption": "A Grass tennis court",
-            "type":"racket"
+            "type":"courts"
         },
         {
             "url": "images/hard.jpg",
             "caption": "A hardcourt tennis court",
-            "type": "racket"
+            "type": "courts"
         }
     ]
 }
