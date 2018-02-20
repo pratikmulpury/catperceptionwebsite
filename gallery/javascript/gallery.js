@@ -17,6 +17,7 @@ $(function() {
     // current image to be display in slideshow
     var displayedimg = 0;
     var slideshowimages = [3];    
+    var galleryimages = [];
 
     function setup(){
 
@@ -56,22 +57,78 @@ $(function() {
             error: function (req, status, err) {
                 console.log('ERROR loading data: ', err);
             }
-        });    
+        });   
+        $('#container2').append("<input id = 'RacketCheckbox'type='checkbox' name='tags' value='Racket'>Rackets <br>");
+        $('#container2').append("<input id = 'BallCheckbox' type='checkbox' name='tag' value='Balls'>Balls <br>");
+        $('#container2').append("<input id = 'CourtCheckbox'type='checkbox' name='tag' value='Courts'>Courts");
         slideshowdisplay(displayedimg)
-        gallerydisplay()
+        setupgallerydisplay();
     }
 
     function slideshowdisplay(imagenumber){
-        console.log(displayedimg);
         var domElement = $('#slide');
         // remove any existing links before adding the new ones
         domElement.empty();
         // add an image element
         console.log(slideshowimages[imagenumber]);
         $('#slide').append(slideshowimages[imagenumber]);
-        console.log($('#slide'));
     }
-    function gallerydisplay(check1,check2,check3){
+    function setupgallerydisplay()
+    {
+        var curgallerydisplay = 0;
+
+        $.ajax({
+            type: 'GET',
+            url: "../gallery/javascript/balls.json",
+            dataType: 'json',
+            success: function (data) {
+                balls = data;
+                for(var i = 0;i<balls.balls.length ; ++i)
+                {
+                    galleryimages[curgallerydisplay] = '<img src= "' + balls.balls[i].url +' alt="'+balls.balls[i].caption +'" data-category="'+balls.balls[i].type + '" height = 200px width = 200px>' + " </img>";
+                    ++curgallerydisplay;
+                }
+            },
+            error: function (req, status, err) {
+                console.log('ERROR loading data: ', err);
+            }
+        }); 
+        $.ajax({
+            type: 'GET',
+            url: "../gallery/javascript/rackets.json",
+            dataType: 'json',
+            success: function (data) {
+                rackets = data;
+                for(var i = 0;i<rackets.rackets.length ; ++i)
+                {
+                    galleryimages[curgallerydisplay] = '<img src= "' + courts.courts[i].url +' alt="'+rackets.rackets[i].caption +'" data-category="'+rackets.rackets[i].type + '" height = 200px width = 200px>' + " </img>";
+                    ++curgallerydisplay;
+                }
+            },
+            error: function (req, status, err) {
+                console.log('ERROR loading data: ', err);
+            }
+        }); 
+        $.ajax({
+            type: 'GET',
+            url: "../gallery/javascript/courts.json",
+            dataType: 'json',
+            success: function (data) {
+                rackets = data;
+                for(var i = 0;i<courts.courts.length ; ++i)
+                {
+                    galleryimages[curgallerydisplay] = '<img src= "' + courts.courts[i].url +' alt="'+courts.courts[i].caption +'" data-category="'+courts.courts[i].type + '" height = 200px width = 200px>' + " </img>";
+                    ++curgallerydisplay;
+                }
+            },
+            error: function (req, status, err) {
+                console.log('ERROR loading data: ', err);
+            }
+        }); 
+
+        
+    }
+    function gallerydisplay(){
 
         
     }
@@ -106,5 +163,16 @@ $(function() {
             slideshowdisplay(displayedimg);
         }
     });
-
+    $(".RacketCheckbox").click(function() {
+        racketschecked = !racketschecked;
+        gallerydisplay();
+    });
+    $(".CourtCheckbox").click(function() {
+        courtschecked = !courtschecked;
+        gallerydisplay();
+    });
+    $(".BallCheckbox").click(function() {
+        ballschecked = !ballschecked;
+        gallerydisplay();
+    });
 }); 
