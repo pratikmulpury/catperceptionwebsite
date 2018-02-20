@@ -56,10 +56,17 @@ img
     font-weight: bold;
     
 }
-.jumbotron
+@media only screen and (min-width:576px) 
 {
-    background-image: url(redwoods.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
+    .jumbotron
+    {
+        background-image: url(redwoods.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+
+    }
+}
+@media only screen and (min-width:900px) 
+{
 
 }

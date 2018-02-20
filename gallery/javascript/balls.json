@@ -1,0 +1,20 @@
+
+{
+    "balls": [
+        {
+            "url": "images/babolatball.jpg",
+            "caption": "A Babolat Ball",
+            "type":"balls"
+        },
+        {
+            "url": "images/wilsonball.jpg",
+            "caption": "A Wilson Ball",
+            "type":"balls"
+        },
+        {
+            "url": "images/pennball.jpg",
+            "caption": "A Penn Ball",
+            "type":"balls"
+        }
+    ]
+}

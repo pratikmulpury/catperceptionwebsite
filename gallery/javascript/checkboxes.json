@@ -1,0 +1,17 @@
+{
+    "checkboxes": [
+
+        {
+            "id":"<input id = 'RacketCheckbox'type='checkbox' name='tags' value='Racket'>Rackets <br>"
+        },
+        {
+            "id" : "<input id = 'BallCheckbox' type='checkbox' name='tag' value='Balls'>Balls <br>"
+
+
+        },
+        {
+            "id":  "<input id = 'CourtCheckbox'type='checkbox' name='tag' value='Courts'>Courts"
+
+        }
+    ]
+}

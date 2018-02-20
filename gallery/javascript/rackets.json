@@ -1,0 +1,21 @@
+
+{
+    "rackets": [
+        {
+            "url": "images/wilsonracket.jpg",
+            "caption": "A Wilson Racket",
+            "type":"rackets"
+        },
+        {
+            "url": "images/yonexracket.jpg",
+            "caption": "A Yonex Racket",
+            "type":"rackets"
+
+        },
+        {
+            "url": "images/babolatracket.jpg",
+            "caption": "A Babolat Racket",
+            "type":"racket"
+        }
+    ]
+}
