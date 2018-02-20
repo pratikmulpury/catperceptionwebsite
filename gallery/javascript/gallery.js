@@ -21,7 +21,18 @@ $(function() {
 
     function setup(){
    
-        $
+        $('body').append('<div id="myModal" class="modal"> <span class="close">&times; </span><img class="modal-content" id="img01"> <div id="caption"></div></div> ')
+        
+       
+
+        
+        
+          
+        
+          
+        
+
+
         $.ajaxSetup({'async': false});
         $.ajax({
             type: 'GET',
@@ -130,7 +141,6 @@ $(function() {
         {
             $('#container2').append(galleryimages[i]);
         }
-        console.log(galleryimages[5]);
         gallerydisplay();
     }
     function gallerydisplay()
@@ -198,20 +208,26 @@ $(function() {
         ballschecked = !ballschecked;
         gallerydisplay();
     });
-    $("img[data-category[]").click(function()
+    $("img[data-category]").click(function()
     {
+        // Get the <span> element that closes the modal
+        var span = $(".close");
         var modalImg = $("#img01");
         var modal = $("#myModal");
-
-
+        var captionText = $('#caption');
         src = $(this).attr('src');
+        console.log(src);
         caption = $(this).attr('alt');
-        modal.style.display = "block";
-        modalImg.src = this.src;        
-        captionText.innerHTML = this.alt
-
+        console.log(modal);
+        modal.show();
+        $("#myModal").css("display", "block");
+        modalImg.attr("src", $(this).attr("src"));
+        modalImg.attr("height", '400px');
+        modalImg.attr("width", '400px');
+        captionText.html($(this).attr("alt"));
     });
-    $(span).click(function(){
-        modal.style.display = "none";
+    $('span').click(function(){
+        var modal = $("#myModal");
+        modal.hide();
     });
 }); 
