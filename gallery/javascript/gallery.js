@@ -1,3 +1,13 @@
+// Hello.
+//
+// This is JSHint, a tool that helps to detect errors and potential
+// problems in your JavaScript code.
+//
+// To start, simply enter some JavaScript anywhere on this page. Your
+// report will appear on the right side.
+//
+// Additionally, you can toggle specific options in the Configure
+// menu.
 /*
  * Slideshow+Gallery
  * @author Pratik Mulpury 
@@ -13,7 +23,6 @@ $(function() {
     var ballschecked = true;
     var racketschecked = true;
      //selected image in gallery
-    var enlargedimage = null;
     // current image to be display in slideshow
     var displayedimg = 0;
     var slideshowimages = [3];    
@@ -21,18 +30,8 @@ $(function() {
 
     function setup(){
    
-        $('body').append('<div id="myModal" class="modal"> <span class="close">&times; </span><img class="modal-content" id="img01"> <div id="caption"></div></div> ')
-        
-       
-
-        
-        
-          
-        
-          
-        
-
-
+        $('body').append('<div id="myModal" class="modal"> <span class="close">&times; </span><img class="modal-content" id="img01"> <div id="caption"></div></div> ');  
+  
         $.ajaxSetup({'async': false});
         $.ajax({
             type: 'GET',
@@ -40,7 +39,8 @@ $(function() {
             dataType: "json",
             success: function (data) {
                 rackets = data;
-                slideshowimages[0] = '<img src="' + rackets.rackets[0].url + '"height = 200px width = 200px>>' +'</img>';
+                slideshowimages[0] = '<img src="' + rackets.rackets[0].url  +'" data-cat2="'+rackets.rackets[0].type + '"height = 200px width = 200px>>' +'</img>';
+                console.log(slideshowimages[0]);
             },
             error: function (req, status, err) {
                 console.log('ERROR loading data: ', err);
@@ -52,7 +52,8 @@ $(function() {
             dataType: "json",
             success: function (data) {
                 courts = data;
-                slideshowimages[1] = '<img src="' + courts.courts[1].url + '"height = 200px width = 200px>>' +'</img>';
+                slideshowimages[1] = '<img src="'  + courts.courts[1].url+ '" data-cat2="'+courts.courts[0].type+ '"height = 200px width = 200px>>' +'</img>';
+                console.log(slideshowimages[1]);
             },
             error: function (req, status, err) {
                 console.log('ERROR loading data: ', err);
@@ -64,7 +65,7 @@ $(function() {
             dataType: 'json',
             success: function (data) {
                 balls = data;
-                slideshowimages[2] = '<img src="' + balls.balls[1].url + '"height = 200px width = 200px>' + " </img>";
+                slideshowimages[2] = '<img src="' + balls.balls[1].url + '" data-cat2="'+balls.balls[0].type + '"height = 200px width = 200px>' + " </img>";
             },
             error: function (req, status, err) {
                 console.log('ERROR loading data: ', err);
@@ -208,17 +209,34 @@ $(function() {
         ballschecked = !ballschecked;
         gallerydisplay();
     });
+    $("img[data-cat2 ='rackets']").click(function() {
+        console.log("D:")
+        $("img[data-category='courts']").hide();
+        $("img[data-category='rackets']").show();
+        $("img[data-category='balls']").hide();
+    });
+
+    $("img[data-cat2 ='balls']").click(function() {
+        console.log("D:")
+        $("img[data-category='courts']").hide();
+        $("img[data-category='rackets']").hide();
+        $("img[data-category='balls']").show();
+    });
+    $("img[data-cat2 ='courts']").click(function() {
+        console.log("D:")
+        $("img[data-category='courts']").show();
+        $("img[data-category='rackets']").hide();
+        $("img[data-category='balls']").hide();
+    });
+
     $("img[data-category]").click(function()
     {
         // Get the <span> element that closes the modal
-        var span = $(".close");
         var modalImg = $("#img01");
         var modal = $("#myModal");
         var captionText = $('#caption');
-        src = $(this).attr('src');
-        console.log(src);
-        caption = $(this).attr('alt');
-        console.log(modal);
+        var src = $(this).attr('src');
+
         modal.show();
         $("#myModal").css("display", "block");
         modalImg.attr("src", $(this).attr("src"));
