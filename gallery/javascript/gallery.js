@@ -1,13 +1,3 @@
-// Hello.
-//
-// This is JSHint, a tool that helps to detect errors and potential
-// problems in your JavaScript code.
-//
-// To start, simply enter some JavaScript anywhere on this page. Your
-// report will appear on the right side.
-//
-// Additionally, you can toggle specific options in the Configure
-// menu.
 /*
  * Slideshow+Gallery
  * @author Pratik Mulpury 
@@ -39,8 +29,7 @@ $(function() {
             dataType: "json",
             success: function (data) {
                 rackets = data;
-                slideshowimages[0] = '<img src="' + rackets.rackets[0].url  +'" data-cat2="'+rackets.rackets[0].type + '"height = 200px width = 200px>>' +'</img>';
-                console.log(slideshowimages[0]);
+                slideshowimages[0] = '<img src="' + rackets.rackets[0].url  +'" id = "slide1"' + '"height = 200px width = 200px>>' +'</img>';
             },
             error: function (req, status, err) {
                 console.log('ERROR loading data: ', err);
@@ -52,7 +41,7 @@ $(function() {
             dataType: "json",
             success: function (data) {
                 courts = data;
-                slideshowimages[1] = '<img src="'  + courts.courts[1].url+ '" data-cat2="'+courts.courts[0].type+ '"height = 200px width = 200px>>' +'</img>';
+                slideshowimages[1] = '<img src="' + courts.courts[0].url  +'" id = "slide2"' + '"height = 200px width = 200px>>' +'</img>';
                 console.log(slideshowimages[1]);
             },
             error: function (req, status, err) {
@@ -65,7 +54,7 @@ $(function() {
             dataType: 'json',
             success: function (data) {
                 balls = data;
-                slideshowimages[2] = '<img src="' + balls.balls[1].url + '" data-cat2="'+balls.balls[0].type + '"height = 200px width = 200px>' + " </img>";
+                slideshowimages[2] = '<img src="' + balls.balls[1].url + '"id = "slide3"' + '"height = 200px width = 200px>' + " </img>";
             },
             error: function (req, status, err) {
                 console.log('ERROR loading data: ', err);
@@ -166,6 +155,28 @@ $(function() {
             $("img[data-category='rackets']").hide();
         }
     }
+    function gallerydisplayslide(courtschecked2,ballschecked2,racketschecked2)
+    {
+        if(courtschecked2 === true){
+            $("img[data-category='courts']").show();
+        }
+        else{
+            $("img[data-category='courts']").hide();
+        }
+        if (ballschecked2 === true){
+            $("img[data-category='balls']").show();
+        }
+        else{
+            $("img[data-category='balls']").hide();
+
+        }
+        if(racketschecked2 === true){
+            $("img[data-category='rackets']").show();
+        }
+        else{
+            $("img[data-category='rackets']").hide();
+        }
+    }
 
     
     /*
@@ -196,9 +207,29 @@ $(function() {
             slideshowdisplay(displayedimg);
         }
     });
+
+    $("#slide").on("click","img[id = 'slide1']",function() {
+        console.log("slide1")
+        $("img[data-category='courts']").hide();
+        $("img[data-category='rackets']").show();
+        $("img[data-category='balls']").hide();
+    });
+
+    $("#slide").on("click","img[id = 'slide2']",function() {
+        console.log("slide2")
+        $("img[data-category='courts']").show();
+        $("img[data-category='rackets']").hide();
+        $("img[data-category='balls']").hide();
+    });
+
+    $("#slide").on("click","img[id = 'slide3']",function() {
+        console.log("slide3")
+        $("img[data-category='courts']").hide();
+        $("img[data-category='rackets']").hide();
+        $("img[data-category='balls']").show();
+    });
     $("#RacketCheckbox").click(function() {
         racketschecked = !racketschecked;
-        console.log(racketschecked);
         gallerydisplay();
     });
     $("#CourtCheckbox").click(function() {
@@ -208,25 +239,6 @@ $(function() {
     $("#BallCheckbox").click(function() {
         ballschecked = !ballschecked;
         gallerydisplay();
-    });
-    $("img[data-cat2 ='rackets']").click(function() {
-        console.log("D:")
-        $("img[data-category='courts']").hide();
-        $("img[data-category='rackets']").show();
-        $("img[data-category='balls']").hide();
-    });
-
-    $("img[data-cat2 ='balls']").click(function() {
-        console.log("D:")
-        $("img[data-category='courts']").hide();
-        $("img[data-category='rackets']").hide();
-        $("img[data-category='balls']").show();
-    });
-    $("img[data-cat2 ='courts']").click(function() {
-        console.log("D:")
-        $("img[data-category='courts']").show();
-        $("img[data-category='rackets']").hide();
-        $("img[data-category='balls']").hide();
     });
 
     $("img[data-category]").click(function()
