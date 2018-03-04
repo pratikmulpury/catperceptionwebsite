@@ -12,29 +12,32 @@
    
     <!-- code for this page -->
     <link rel="stylesheet" href="css/styles.css">
-    <script src="javascript/login.js" async></script>
+    <script src="javascript/signup.js" async></script>
     <!-- title -->
     <title>Trello Clone</title>
 </head>
 <body>
-    <header class="header">
-        <h1>Login Page</h1>
-    </header>
+    <div id="vue-instance">
 
-    <input class="new-email"
-    placeholder="Email"
-    v-model="newemail"
-    @keyup.enter="addEmail">
+        <header class="header">
+            <h1>SignUp Page</h1>
+        </header>
 
-    <input class="new-username"
-    placeholder="Username?"
-    v-model="newusername"
-    @keyup.enter="addUsername">
+        <input class="new-email"
+        placeholder="Email"
+        v-model="newEmail"
+        >
+        <input class="new-username"
+        placeholder="Username?"
+        v-model="newUsername"
+        >
 
-    <label for="imgTitle">Title:</label>
-    <input type="text" id="imgTitle" v-model="newImageTitle">
-    <input type="file" id="files" name="files[]" />
-    <input id="submitButton" type="submit" value="Save" v-if="isValidEmail" v-on:click="save(email)">
-    
+        <input type="file" id="files" name="files[]" />
+        <label for="imgTitle">Image Title:</label>
+        <input type="text" id="imgTitle" v-model="newImageTitle">
+        <br>
+        <button v-on:click="sayHello">Hey there!</button>
+
+    </div>
 </body>
 </html>

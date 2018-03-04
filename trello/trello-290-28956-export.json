@@ -1,0 +1,120 @@
+{
+  "Cards" : {
+    "card1" : {
+      "cardname" : "Work on Responsive List",
+      "deadline" : "2/22/2222",
+      "description" : "Add a detailed description",
+      "imageatt" : {
+        "title" : "test attachment",
+        "url" : "stuff"
+      },
+      "lists" : {
+        "list1-done" : true,
+        "list1-inprogress" : false,
+        "list1-todo" : false
+      },
+      "sublist" : {
+        "subtask1" : "add subtasks"
+      }
+    },
+    "card2" : {
+      "cardname" : "Work on Trello",
+      "deadline" : "2/22/2223",
+      "description" : "Add a detailed description",
+      "imageatt" : {
+        "title" : "test attachment",
+        "url" : "https://en.wikipedia.org/wiki/Mozilla_Foundation#/media/File:Mozilla_logo.svg"
+      },
+      "lists" : {
+        "list1-done" : false,
+        "list1-inprogress" : true,
+        "list1-todo" : true
+      },
+      "sublist" : {
+        "subtask2" : "add subtasks"
+      }
+    },
+    "card3" : {
+      "cardname" : "Work on SQL",
+      "deadline" : "2/22/2224",
+      "description" : "Add a detailed description",
+      "imageatt" : {
+        "url" : "https://en.wikipedia.org/wiki/Mozilla_Foundation#/media/File:Mozilla_logo.svg"
+      },
+      "lists" : {
+        "list1-done" : false,
+        "list1-inprogress" : false,
+        "list1-todo" : true
+      },
+      "sublists" : {
+        "subtask1" : "add subtasks"
+      }
+    }
+  },
+  "Lists" : {
+    "list1-done" : {
+      "cards" : {
+        "card1" : true,
+        "card2" : false,
+        "card3" : false
+      },
+      "collapsed" : false,
+      "name" : "done",
+      "projects" : {
+        "project1" : true
+      }
+    },
+    "list1-inprogress" : {
+      "cards" : {
+        "card1" : false,
+        "card2" : true,
+        "card3" : false
+      },
+      "collapsed" : false,
+      "name" : "in progress",
+      "projects" : {
+        "project1" : true
+      }
+    },
+    "list1-todo" : {
+      "cards" : {
+        "card1" : false,
+        "card2" : false,
+        "card3" : true
+      },
+      "collapsed" : false,
+      "name" : "todo",
+      "projects" : {
+        "project1" : true
+      }
+    }
+  },
+  "Projects" : {
+    "project1" : {
+      "backgroundcolor" : "red",
+      "closed" : false,
+      "lists" : {
+        "project1-doing" : true,
+        "project1-done" : true,
+        "project1-todo" : true
+      },
+      "starred" : false,
+      "users" : {
+        "user-test" : true
+      }
+    }
+  },
+  "Users" : {
+    "user-test" : {
+      "email" : "test@gmail.com",
+      "images" : {
+        "title" : "roger",
+        "url" : "https://en.wikipedia.org/wiki/Roger_Federer#/media/File:FedalWimbledon2008.jpg"
+      },
+      "projects" : {
+        "project1" : true
+      },
+      "username" : "test"
+    }
+  }
+}
