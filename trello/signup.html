@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Pratik Mulpury">
+    <!-- libraries neded for this page -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vuefire/1.4.5/vuefire.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   
+    <!-- code for this page -->
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="javascript/login.js" async></script>
+    <!-- title -->
+    <title>Trello Clone</title>
+</head>
+<body>
+    <header class="header">
+        <h1>Login Page</h1>
+    </header>
+
+    <input class="new-email"
+    placeholder="Email"
+    v-model="newemail"
+    @keyup.enter="addEmail">
+
+    <input class="new-username"
+    placeholder="Username?"
+    v-model="newusername"
+    @keyup.enter="addUsername">
+
+    <label for="imgTitle">Title:</label>
+    <input type="text" id="imgTitle" v-model="newImageTitle">
+    <input type="file" id="files" name="files[]" />
+    <input id="submitButton" type="submit" value="Save" v-if="isValidEmail" v-on:click="save(email)">
+    
+</body>
+</html>
