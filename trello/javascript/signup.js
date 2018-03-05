@@ -25,8 +25,10 @@ var usersRef = db.ref('Users');
 var projectsRef = db.ref('Projects');
 // connect Firebase to Vue
 Vue.use(VueFire);
+
 // app Vue instance
 var app = new Vue({
+    el: '#vue-instance',
     // app initial state
     data: {
         // user entered data, managed locally before adding to database
@@ -44,27 +46,33 @@ var app = new Vue({
     methods: {
         // upload new user to firebase
         save: function(){
-            alert('save function called')
+            alert('save function called');
+            
             var input = document.getElementById('files');
             if (this.newUsername && this.newEmail && this.newImageTitle && input.files.length > 0) {
                 alert('save function if statement called')
                 var file = input.files[0];
                 // create new user with the username, new email, image title and image
-                storageRef.child('Users/'+newUsername+'/username')
-                .put(newUsername)
+                storageRef.child('Users/' + this.newUsername + '/username')
+                .put(this.newUsername)
 
-                storageRef.child('Users/'+newUsername+'/email')
-                .put(newEmail)
+                storageRef.child('Users/' + this.newUsername + '/email')
+                .put(this.newEmail)
 
-                storageRef.child('Users/'+newUsername+'/images/title')
-                .put(newImageTitle)
+                storageRef.child('Users/' + this.newUsername + '/images/title')
+                .put(this.newImageTitle)
 
-                storageRef.child('Users/'+newUsername+'/images/url')
+                storageRef.child('Users/' + this.newUsername + '/images/url')
                 .put(file)
-                next('/login.html');
+
+                // navigation to login page
+                location.href = 'login.html';                
             }
-        },
+            
+        }
+
     }
-})
+});
+
 // mount Vue app within specific HTML element
 app.$mount('#app')

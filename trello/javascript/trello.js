@@ -69,7 +69,7 @@ var app = new Vue({
         addList()
         {
 
-        }      
+        },      
         // add newly entered todo item if it exists and clear it to prepare for the next one
         addTodo () {
             this.newTodo = this.newTodo.trim();
