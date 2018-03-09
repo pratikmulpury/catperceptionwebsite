@@ -1,7 +1,7 @@
 /*
  *  A simple todo list app.
  *
- * @author Robert Duvall
+ * @author Pratik Mulpury
  */
 
 // visibility filters
@@ -29,7 +29,8 @@ var config = {
 // global access to initialized app database
 var db = firebase.initializeApp(config).database();
 // global reference to remote data
-var todosRef = db.ref('todos');
+//var todosRef = db.ref('todos');
+var todosRef = db.ref('Users');
 // connect Firebase to Vue
 Vue.use(VueFire);
 
@@ -50,12 +51,12 @@ var app = new Vue({
     // methods that can be treated as data from within HTML code
     computed: {
         // return todos that match the currently selected filter
-        filteredTodos () {
+        filteredTodos: function() {
             return filters[this.visibility](this.todos);
         },
 
         // return count of the remaining active todo items
-        remaining () {
+        remaining: function() {
             return filters.active(this.todos).length;
         }
     },
@@ -63,15 +64,19 @@ var app = new Vue({
     // methods that can be called from within HTML code, typically through input elements
     methods: {
         // change current filter to the given value
-        setFilter (filter) {
+        setFilter: function(filter) {
+
+            console.log('cards: ' + JSON.stringify(this.todos));
+
             this.visibility = filter;
         },
-        addList()
+
+        addList: function()
         {
 
         },      
         // add newly entered todo item if it exists and clear it to prepare for the next one
-        addTodo () {
+        addTodo: function() {
             this.newTodo = this.newTodo.trim();
             if (this.newTodo) {
                 todosRef.push({
@@ -84,13 +89,13 @@ var app = new Vue({
         },
 
         // remove given todo from the list
-        removeTodo (todo) {
+        removeTodo: function(todo) {
             //this.todos.splice(this.todos.indexOf(todo), 1);
             todosRef.child(todo['.key']).remove();
         },
 
         // remove all completed todos from the list
-        removeCompleted () {
+        removeCompleted: function() {
             // this.todos = filters.active(this.todos)
             // very readable, "slow" way to remove many items
             //filters.completed(this.todos).forEach(todo => this.removeTodo(todo));
@@ -109,9 +114,10 @@ var app = new Vue({
         },
 
         // replaces v-model since that only represents local version of the object
-        toggleTodo (todo) {
+        toggleTodo: function(todo) {
             todosRef.child(todo['.key']).update({ completed: !todo.completed });
         }
+
     }
 });
 

@@ -21,20 +21,21 @@
         <h1>Login Page</h1>
     </header>
 
-    <input class="new-email"
-    placeholder="Email"
-    v-model="newemail"
-    @keyup.enter="addEmail">
+    <div id = "getusername">
+        <input class="new-email"
+        placeholder="Email"
+        v-model="newemail"
+        @keyup.enter="addEmail">
 
-    <input class="new-username"
-    placeholder="Username?"
-    v-model="newusername"
-    @keyup.enter="addUsername">
+        <input class="new-username"
+        placeholder="Username?"
+        v-model="newusername"
+        @keyup.enter="addUsername">
 
-    <label for="imgTitle">Title:</label>
-    <input type="text" id="imgTitle" v-model="newImageTitle">
-    <input type="file" id="files" name="files[]" />
-    <input id="submitButton" type="submit" value="Save" v-if="isValidEmail" v-on:click="save(email)">
-    
+        <label for="imgTitle">Title:</label>
+        <input type="text" id="imgTitle" v-model="newImageTitle">
+        <input type="file" id="files" name="files[]" />
+        <input id="submitButton" type="submit" value="Save" v-if="isValidEmail" v-on:click="save(email)">
+    </div>
 </body>
 </html>
