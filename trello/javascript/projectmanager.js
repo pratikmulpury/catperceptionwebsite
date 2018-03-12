@@ -1,21 +1,3 @@
-/*
- */
-
-// visibility filters
-var filters = {
-    /*
-    all: function (todos) {
-        return todos;
-    },
-    active: function (todos) {
-        return todos.filter(todo => !todo.completed);
-    },
-    completed: function (todos) {
-        return todos.filter(todo => todo.completed);
-    }
-    */
-}
-
 // set up for Firebase
 var config = {
     apiKey: "AIzaSyALCV8Td0bxq7yx010JOTZExuprMW9LNOM",
@@ -30,7 +12,7 @@ var db = firebase.initializeApp(config).database();
 // global reference to remote data
 var listsRef = db.ref('Lists');
 var usersRef = db.ref('Users');
-var projectsRef = db.ref('Projects')
+var projectsRef = db.ref('Projects');
 var storageRef = firebase.storage().ref();
 var categoriesRef = db.ref('Categories');
 // connect Firebase to Vue
@@ -389,7 +371,7 @@ var app = new Vue({
        editCard: function(cardKey, list) {    
            // get original card
            var origCard = list.Cards[cardKey];
-           origCardnamecopy = this.copyObject(origCard.name);
+           var origCardnamecopy = this.copyObject(origCard.name);
            origCard.name = this.updatedCardName;    // update card name
            origCard.isEditName = 0;
 
