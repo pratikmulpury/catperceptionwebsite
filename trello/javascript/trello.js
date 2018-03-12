@@ -1,7 +1,7 @@
 /*
  *  A simple todo list app.
  *
- * @author Pratik Mulpury
+ * @author Robert Duvall
  */
 
 // visibility filters

@@ -19,125 +19,200 @@
 <body>
     
     <div id="todoapp">
-        <section v-cloak>
-            <label>Add New List:</label>
-            <input type = "text"
-            placeholder="New List Name?"
-            v-model="newListName"
-            @keyup.enter="addList">
-        </section>                
-        <br>
-        &nbsp;&nbsp;<button v-on:click="toggleExpandCollapseLists()"> <b>{{expandCollapseListText}}</b> </button>
-        <br>
-        <br>
-        <ul id="all-lists">
-            <!-- loop each element in list as usual -->
-            <li v-for="(list, index) in lists">                             
-                <label>{{ list.name }}</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                   <button v-on:click="showEditListInput(index)"> (Edit) </button>
-                   <input type = "text" v-model = "updatedListName" :placeholder="list.name" v-show="list.isEditName > 0" @keyup.enter="editList(index)">
-                   
-                   <button v-on:click="deleteList(index)"> (Delete) </button>
-                   
-                   <button v-on:click="moveListUp(index)"> (Up) </button>
-                   <button v-on:click="moveListDown(index)"> (Down) </button>
 
-                
-                <ul id="all-cards" v-show="!collapseLists">
-                    <!-- loop each element in Cards within each list -->
-                    <li v-for="(card, index) in list.Cards">
-                
-                        <label v-on:click="toggleExpandCollapseCard(index, list)">{{ card.name }}</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button v-on:click="showEditCardInput(index, list)"> (Edit) </button>
-                        <input type = "text" v-model = "updatedCardName" :placeholder="card.name" v-show="card.isEditName > 0" @keyup.enter="editCard(index, list)">
-                        
-                        <button v-on:click="deleteCard(index, list)"> (Delete) </button>
-                        
-                        <button v-on:click="moveCardUp(index, list)"> (Up) </button>
-                        <button v-on:click="moveCardDown(index, list)"> (Down) </button>
+        <div v-bind:style="{ 'background-color': projects[0].color }">
+            <!-- user stuff -->
+            <div>
+                <button v-on:click="logout()"> Logout </button>
+                <br>
+                <button v-on:click="viewChanges()"> View Changes to this Project </button>
 
-                        <button v-on:click="showMoveCardToListInput(index, list)"> (Move to List) </button>
+                <br>
+                <input class="new-email"
+                placeholder="Email"
+                v-model="newemail"
+                >
+        
+                <input class="new-username"
+                placeholder="Username?"
+                v-model="newusername"
+                >
+        
+                <br>
+                <label for="imgTitle">Title:</label>
+                <input type="text" id="imgTitle" v-model="newImageTitle">
+        
+                <input type="file" id="files" name="files[]" />
+                <input id="submitButton" type="submit" value="Update" v-on:click="update()">
+            </div>
+            <h1> Trello Project 1</h1> 
+            <input type = "text" v-model = "backgroundcolor" placeholder= "Change_Background_Color"  @keyup.enter="editBackgroundColor()">
+            <button v-on:click="categoricallyDisplayCards('easy')"> (Display Easy Cards) </button>
+            <button v-on:click="categoricallyDisplayCards('medium')"> (Display Medium Cards) </button>
+            <button v-on:click="categoricallyDisplayCards('hard')"> (Display Hard Cards) </button>
+            <button v-on:click="categoricallyDisplayCards('all')"> (Display All Cards) </button>
 
-                        <!-- list of all lists in the system -->
-                        &nbsp;&nbsp;&nbsp; <select id="all-moveto-users" v-model="moveCardToListName" v-show="card.isMoveToList > 0" @change="moveCardToList(index, list)">
-                                <option value=""></option>
-                                <option v-for="list in lists" :value="list.name">
-                                    {{list.name}}
-                                </option>
-                        </select>
-                       
-                        <!-- this section is the expanded view of the card -->
-                        <div  v-show="card.collapseCard == 0">
-                            <br>
-                            &nbsp;&nbsp;&nbsp; <b>Name:</b> {{card.name}}
-                            <br>
-                            &nbsp;&nbsp;&nbsp; <b>Completed:</b> {{card.completed}}
-                            <br><br>
-                            <!-- comments section -->
-                            <section>
-                                &nbsp;&nbsp;&nbsp; <b>Comments:</b>  <button v-on:click="showAddCommentToCardInput(card)"> (Add Comment) </button>
-                                <input type = "text" v-model = "newComment" v-show="card.isAddComment > 0" @keyup.enter="addCommentToCard(card)">
-                                
-                                <ul id="all-comments">
-                                    <!-- loop each element in Comments within each card -->
-                                    <li v-for="(comment, index) in card.Comments">
-                                
-                                        <label>{{ comment.description }}</label>
-                                                                               
-                                    </li>
-                                </ul>                                  
-                                <br>
-                            </section>
-                            <!-- end of comments section -->
+            <section v-cloak>
+                <label>Add New List:</label>
+                <input type = "text"
+                placeholder="New List Name?"
+                v-model="newListName"
+                @keyup.enter="addList">
+            </section>                
+            <br>
+            &nbsp;&nbsp;<button v-on:click="toggleExpandCollapseLists()"> <b>{{expandCollapseListText}}</b> </button>
+            <br>
+            <br>
+            <ul id="all-lists">
+                <!-- loop each element in list as usual -->
+                <li v-for="(list, index) in lists">                             
+                    <label>{{ list.name }}</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button v-on:click="showEditListInput(index)"> (Edit) </button>
+                    <input type = "text" v-model = "updatedListName" :placeholder="list.name" v-show="list.isEditName > 0" @keyup.enter="editList(index)">
+                    
+                    <button v-on:click="deleteList(index)"> (Delete) </button>
+                    
+                    <button v-on:click="moveListUp(index)"> (Up) </button>
+                    <button v-on:click="moveListDown(index)"> (Down) </button>
 
-                            <br><br>
+                    
+                    <ul id="all-cards" v-show="!collapseLists">
+                        <!-- loop each element in Cards within each list -->
+                        <li v-for="(card, index) in list.Cards" v-show="card.todisplay" v-bind:style="{ 'color': card.categorycolor }" >
+                    
+                            <label v-on:click="toggleExpandCollapseCard(index, list)">{{ card.name }}</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button v-on:click="showEditCardInput(index, list)"> (Edit) </button>
+                            <input type = "text" v-model = "updatedCardName" :placeholder="card.name" v-show="card.isEditName > 0" @keyup.enter="editCard(index, list)">
+                            
+                            <button v-on:click="deleteCard(index, list)"> (Delete) </button>
 
-                            <!-- users section -->
-                            <section>
-                                &nbsp;&nbsp;&nbsp; <b>Users:</b>  <button v-on:click="showAddUserToCardInput(card)"> (Assign User) </button>
-                                
-                                <!-- list of all users in the system -->
-                                &nbsp;&nbsp;&nbsp; <select id="all-users" v-model="newUser" v-show="card.isAddUser > 0" @change="addUserToCard(card)">
+                            <button v-on:click="moveCardUp(index, list)"> (Up) </button>
+                            <button v-on:click="moveCardDown(index, list)"> (Down) </button>
+
+                            <button v-on:click="showMoveCardToListInput(index, list)"> (Move to List) </button>
+                            Assign Category
+
+                            <!-- list of all lists in the system -->
+                            &nbsp;&nbsp;&nbsp; <select id="assign-category" v-model="assignedCategory" @change="changeAssignedCategory(index, list)">
                                     <option value=""></option>
-                                    <option v-for="user in users" :value="user.username">
-                                        {{user.username}}
+                                    <option v-for="category in categories" :value="category.name">
+                                        {{category.name}}
                                     </option>
-                                </select>
+                            </select>
 
-
-                                <ul id="all-assigned-users">
-                                    <!-- loop each element in Users within each card -->
-                                    <li v-for="(user, index) in card.Users">
-                                
-                                        <label>{{ user.username }}</label>
-                                                                               
-                                    </li>
-                                </ul>                                  
+                            <!-- list of all lists in the system -->
+                            &nbsp;&nbsp;&nbsp; <select id="all-moveto-users" v-model="moveCardToListName" v-show="card.isMoveToList > 0" @change="moveCardToList(index, list)">
+                                    <option value=""></option>
+                                    <option v-for="list in lists" :value="list.name">
+                                        {{list.name}}
+                                    </option>
+                            </select>
+                        
+                            <!-- this section is the expanded view of the card -->
+                            <div  v-show="card.collapseCard == 0">
                                 <br>
-                            </section>
-                            <!-- end of users section -->
-                        </div>
-                        <!-- end of section which contains the expanded view of the card -->
-                    </li>
-                </ul>   
-                <section v-show="!collapseLists">
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <b><button v-on:click="showAddCardInput(index)"> Add New Card </button></b>
-                        <input type = "text"
-                        placeholder="New Card Name?"
-                        v-model="newCardName"
-                        v-show="list.isAddCard > 0" 
-                        @keyup.enter="addCard(index)">
-                    </section>                               
-                <br><br> 
-                
-                
+                                &nbsp;&nbsp;&nbsp; <b>Name:</b> {{card.name}}
+                                <br>
+                                <br>
+                                &nbsp;&nbsp;&nbsp; <b>Category:</b> {{card.categoryname}}
+                                <br>
+                                &nbsp;&nbsp;&nbsp; <b>Completed:</b> {{card.completed}}
+                                <br>
+                                &nbsp;&nbsp;&nbsp; <b>Creation Date:</b> {{card.CreationDate}}
+                                <br>
+                                &nbsp;&nbsp;&nbsp; <b>Deadline:</b> {{card.deadline}}
+                                <br>
+                                &nbsp;&nbsp;&nbsp; <b>Decsription:</b> {{card.description}}
 
-            </li>
-        </ul>
- 
+                                <ul v-for="(change, index) in card.Changes">
+                                        <label>{{ change.Changes }}</label>
+                                </ul>
 
-        <button v-on:click="pushDummyData()"> Push dummy data </button>
+
+                                <input type = "text" v-model = "newDescription" @keyup.enter="addDescriptionToCard(index, list)">
+
+                                <input type="file" id="files2" name="files[]" />
+                                <input id="submitButton" type="submit" value="Attach Images" v-on:click="storeCardImage(index,list)">
+                                <ul v-for="(url, index) in card.Images">
+                                
+                                        <img :src = "url.url"  alt  = " "  height = "40" weight = "40" >
+                                                                            
+                                </ul>
+                                <!-- todo section -->
+                                <br>
+                                &nbsp;&nbsp;&nbsp; <b>Todolist:</b> {{card.todos}}
+                                <br>
+                                <input type = "text" v-model = "newTodo"  @keyup.enter="addTodos(index, list)">
+                                    
+                                <ol id="all-todos">
+                                    <!-- loop each element in Comments within each card -->
+                                    <li v-for="(todo, index) in card.Todos">
+                                
+                                        <label>{{ todo.todos }}</label>
+                                                                            
+                                    </li>
+                                </ol>               
+                                <br>
+                                <!-- comments section -->
+                                <section>
+                                    &nbsp;&nbsp;&nbsp; <b>Comments:</b>  <button v-on:click="showAddCommentToCardInput(card)"> (Add Comment) </button>
+                                    <input type = "text" v-model = "newComment" v-show="card.isAddComment > 0" @keyup.enter="addCommentToCard(index, list)">
+                                    
+                                    <ul id="all-comments">
+                                        <!-- loop each element in Comments within each card -->
+                                        <li v-for="(comment, index) in card.Comments">
+                                    
+                                            <label>{{ comment.comments }}</label>
+                                                                                
+                                        </li>
+                                    </ul>                                  
+                                    <br>
+                                </section>
+                                <!-- end of comments section -->
+
+                                <br><br>
+
+                                <!-- users section -->
+                                <section>
+                                    &nbsp;&nbsp;&nbsp; <b>Users:</b>  <button v-on:click="showAddUserToCardInput(card)"> (Assign User) </button>
+                                    
+                                    <!-- list of all users in the system -->
+                                    &nbsp;&nbsp;&nbsp; <select id="all-users" v-model="newUser" v-show="card.isAddUser > 0" @change="addUserToCard(index, list)">
+                                        <option value=""></option>
+                                        <option v-for="user in users" :value="user.username">
+                                            {{user.username}}
+                                        </option>
+                                    </select>
+
+
+                                    <ul id="all-assigned-users">
+                                        <!-- loop each element in Users within each card -->
+                                        <li v-for="(user, index) in card.Users">
+                                    
+                                            <label>{{ user.username }}</label>
+                                                                                
+                                        </li>
+                                    </ul>                                  
+                                    <br>
+                                </section>
+                                <!-- end of users section -->
+                            </div>
+                            <!-- end of section which contains the expanded view of the card -->
+                        </li>
+                    </ul>   
+                    <section v-show="!collapseLists">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <b><button v-on:click="showAddCardInput(index)"> Add New Card </button></b>
+                            <input type = "text"
+                            placeholder="New Card Name?"
+                            v-model="newCardName"
+                            v-show="list.isAddCard > 0" 
+                            @keyup.enter="addCard(index)">
+                        </section>                               
+                    <br><br> 
+                </li>
+            </ul>
+        </div>
     </div>
 </body>
 </html>

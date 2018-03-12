@@ -17,27 +17,29 @@
     <title>Trello Clone</title>
 </head>
 <body>
-    <div id="vue-instance">
+    <header class="header">
+        <h1>Signup Page</h1>
+    </header>
 
-        <header class="header">
-            <h1>SignUp Page</h1>
-        </header>
-
+    <div id = "app">
         <input class="new-email"
         placeholder="Email"
-        v-model="newEmail"
+        v-model="newemail"
         >
+
         <input class="new-username"
         placeholder="Username?"
-        v-model="newUsername"
+        v-model="newusername"
         >
 
-        <input type="file" id="files" name="files[]" />
-        <label for="imgTitle">Image Title:</label>
-        <input type="text" id="imgTitle" v-model="newImageTitle">
         <br>
-        <button v-on:click="sayHello">Hey there!</button>
+        <label for="imgTitle">Title:</label>
+        <input type="text" id="imgTitle" v-model="newImageTitle">
 
+        <input type="file" id="files" name="files[]" />
+        <input id="submitButton" type="submit" value="Save" v-on:click="save()">
+        <br>
+        <button v-on:click="skip()"> (Already Have An Account?) </button>
     </div>
 </body>
 </html>

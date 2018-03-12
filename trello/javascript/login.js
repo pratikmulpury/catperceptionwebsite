@@ -1,21 +1,8 @@
 /*
- *  A simple todo list app.
+ * Used Professor Duvall's code as a baseline
  *
- * @author Robert Duvall
+ * @author Pratik Mulpury
  */
-
-// visibility filters
-var filters = {
-    all: function (todos) {
-        return todos;
-    },
-    active: function (todos) {
-        return todos.filter(todo => !todo.completed);
-    },
-    completed: function (todos) {
-        return todos.filter(todo => todo.completed);
-    }
-}
 
 // set up for Firebase
 var config = {
@@ -23,39 +10,73 @@ var config = {
     authDomain: "trello-290-28956.firebaseapp.com",
     databaseURL: "https://trello-290-28956.firebaseio.com",
     projectId: "trello-290-28956",
-    storageBucket: "",
+    storageBucket: "trello-290-28956.appspot.com",
     messagingSenderId: "237477910372"
-};
+  };
+
 // global access to initialized app database
 var db = firebase.initializeApp(config).database();
+// global reference to remote storage
+var storageRef = firebase.storage().ref();
 // global reference to remote data
-var todosRef = db.ref('todos');
+var usersRef = db.ref('Users');
+var projectsRef = db.ref('Projects');
 // connect Firebase to Vue
 Vue.use(VueFire);
 
-// instance of Vue app
-var app6 = new Vue({
-    el: '#getusername',
+// app Vue instance
+var app = new Vue({
+    // app initial state
     data: {
-      username: 'Hello Vue!',
-      message: 'Test Message'
+        // user entered data, managed locally before adding to database
+        username: '',
+        email: '',
+        },
+
+    // local representations of firebase data
+    firebase: {
+        users:usersRef,
     },
-    computed:{
-        username:{
-            get: function(){ 
-                return store.state.name; 
-            }, 
-            set: function(newName){ 
-                debugger;
-                store.dispatch('addName',newName);
+    methods: {
+        copyObject: function(obj) {        
+            var copyObjStr = JSON.stringify(obj);  
+            var copyObj = JSON.parse(copyObjStr);      
+            return copyObj;
+        },
+        deleteAttribute: function(obj, keyToDelete) {
+            delete obj[keyToDelete];
+        },
+        signup: function()
+        {
+            location.href = "signup.html";      
+        },
+        check : function(){
+            console.log('in check');
+            var matched = false;
+            for(var i = 0; i<this.users.length; i++)
+            {
+                if(this.username == this.users[i]['username'] || this.email == this.users[i]['email'] )
+                {
+                    matched =true;         
+                    var origList = this.users[i];        // get the original user
+
+                    // copy the user
+                    var updatedList = this.copyObject(origList);
+        
+                    // delete the '.key' attribute
+                    this.deleteAttribute(updatedList, '.key');   
+        
+                    // update the logged in status 
+                    updatedList.loggedin = true;   
+        
+                    // update to Firebase
+                    usersRef.child(origList['.key']).update(updatedList);            
+                    location.href = "projectmanager.html";
+                }
             }
-        }
-    },
-
-    watch: {
-        'username.value': function(newVal, oldVal) {
-          console.log('value changed from ' + oldVal + ' to ' + newVal);
-      }
+        },
     }
+});
 
-  })
+// mount Vue app within specific HTML element
+app.$mount('#app')

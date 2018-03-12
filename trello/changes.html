@@ -12,34 +12,29 @@
    
     <!-- code for this page -->
     <link rel="stylesheet" href="css/styles.css">
-    <script src="javascript/login.js" async></script>
+    <script src="javascript/changes.js" async></script>
     <!-- title -->
-    <title>Trello Clone</title>
+    <title>Trello Changes</title>
 </head>
 <body>
-    <header class="header">
-        <h1>Login Page</h1>
-    </header>
+    
+    <div id="changetracker">
 
-    <div id = "app">
-        <input class="enter-email"
-        placeholder="Email"
-        v-model="email"
-        >
-        <input class="enter-username"
-        placeholder="Username"
-        v-model="username"
-        >
-        <button v-on:click="check()"> Login </button>
-        <br>
-        <br>
+        
+            <h1> Trello Change Tracker </h1> 
 
-        <button v-on:click="signup()"> Signup </button>
+            <button v-on:click="goBack()"> Back </button>
+            <br>
+                                           
+            <ul id="all-changes">
+                    <!-- loop each element in Comments within each card -->
+                    <li v-for="(change, index) in projects[0].Changes">
+                
+                        <label>{{ change.additionalchange }}</label>
+                                                            
+                    </li>
+            </ul>      
 
-        <br>
-        <br>
-
-        Note : "test2" is One of the Dummy Usernames
     </div>
 </body>
 </html>

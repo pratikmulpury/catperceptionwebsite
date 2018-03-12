@@ -12,7 +12,7 @@ var config = {
     projectId: "trello-290-28956",
     storageBucket: "trello-290-28956.appspot.com",
     messagingSenderId: "237477910372"
-};
+  };
 
 // global access to initialized app database
 var db = firebase.initializeApp(config).database();
@@ -30,9 +30,8 @@ var app = new Vue({
     data: {
         // user entered data, managed locally before adding to database
         newImageTitle: '',
-        newUsername: '',
-        newEmail: '',
-        newImageTitle: ''
+        newusername: '',
+        newemail: '',
         },
 
     // local representations of firebase data
@@ -41,34 +40,44 @@ var app = new Vue({
         projects:projectsRef
     },
     methods: {
-        // upload new user to firebase
-        save: function(){
-            console.log('save function called');
-            
-            var input = document.getElementById('files');            
-            if (this.newUsername && this.newEmail && this.newImageTitle && input.files.length > 0) {
-                console.log('save function if statement called: ');
-                
+        save : function(){
+            console.log("save");
+            this.storeImage();
+        },
+        storeImage:function () {
+            // get input element user used to select local image
+            console.log("storeimage");
+            var input = document.getElementById('files');
+            // have all fields in the form been completed
+            if (this.newImageTitle && this.newusername && this.newemail && input.files.length > 0) {
                 var file = input.files[0];
-                // create new user with the username, new email, image title and image
-                storageRef.child('Users/' + this.newUsername + '/username')
-                .put(this.newUsername)
-
-                storageRef.child('Users/' + this.newUsername + '/email')
-                .put(this.newEmail)
-
-                storageRef.child('Users/' + this.newUsername + '/images/title')
-                .put(this.newImageTitle)
-
-                storageRef.child('Users/' + this.newUsername + '/images/url')
-                .put(file)
-
-                // navigation to login page
-                location.href = 'login.html';                
+                // get reference to a storage location and
+                storageRef.child('images/' + file.name)
+                          .put(file)
+                          .then(snapshot => this.addUser(snapshot.downloadURL));
+                // reset input values so user knows to input new data
+                input.value = '';
             }
+        },
+        skip: function()
+        {
+            location.href = "login.html";
+        },
+        addUser : function(url) {
+            // now that image has been stored in Firebase, create a reference to it in database
+            console.log("add user");
+            usersRef.push({
+                    username: this.newusername,
+                    email: this.newemail,
+                    url: url,
+                    imagetitle: this.newImageTitle,
+                    loggedin: 'false'
+            });
+            // reset input values so user knows to input new data
+            this.newImageTitle = '';
+            location.href = "login.html";
+        },
             
-        }
-
     }
 });
 
