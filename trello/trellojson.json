@@ -1,0 +1,89 @@
+{
+  "Categories" : {
+    "-L7MBhGN8sfUXn_Lkonh" : {
+      "name" : "easy"
+    },
+    "-L7MBhGQbzSg5lqAFjo9" : {
+      "name" : "medium"
+    },
+    "-L7MBhGR4-JMnpwgvyow" : {
+      "name" : "hard"
+    }
+  },
+  "Lists" : {
+    "-L7zzmNESgXo6cod9ycO" : {
+      "Cards" : {
+        "-L8-DuiM8eO87hOiiUB_" : {
+          "CreationDate" : "Mon Mar 19 2018 17:47:54 GMT-0400 (EDT)",
+          "categorycolor" : "black",
+          "collapseCard" : 1,
+          "completed" : false,
+          "deadline" : "Thu Apr 19 2018 17:47:54 GMT-0400 (EDT)",
+          "isAddComment" : 0,
+          "isAddUser" : 0,
+          "isEditName" : 0,
+          "isMoveToList" : 0,
+          "name" : "card1",
+          "todisplay" : true
+        }
+      },
+      "collapsed" : false,
+      "isAddCard" : 0,
+      "isEditName" : 0,
+      "name" : "mylist"
+    },
+    "-L8-DwFMaURhll86A5-Y" : {
+      "collapsed" : false,
+      "isAddCard" : 0,
+      "isEditName" : 0,
+      "name" : "anotherlist"
+    }
+  },
+  "Projects" : {
+    "TrelloProject1" : {
+      "Changes" : {
+        "-L7zzncuwxrQ7pdBkNAq" : {
+          "additionalchange" : "New Card named: 'testcard' was created on Mon Mar 19 2018 16:41:53 GMT-0400 (EDT)"
+        },
+        "-L7zzoMgi3WyLXMzd1kz" : {
+          "additionalchange" : " Card 'testcard' was assigned the category: 'easy' on Mon Mar 19 2018 16:41:56 GMT-0400 (EDT)"
+        },
+        "-L7zzpCjIIN2yK2Kp0Ph" : {
+          "additionalchange" : " Card 'testcard' was assigned the category: 'medium' on Mon Mar 19 2018 16:41:59 GMT-0400 (EDT)"
+        },
+        "-L7zzsKy85aJobljmRBh" : {
+          "additionalchange" : " Card 'testcard' was assigned the category: 'medium' on Mon Mar 19 2018 16:42:12 GMT-0400 (EDT)"
+        },
+        "-L7zztDpDOj_CqERGC9C" : {
+          "additionalchange" : " Card 'testcard' was assigned the category: 'hard' on Mon Mar 19 2018 16:42:16 GMT-0400 (EDT)"
+        },
+        "-L7zzxAgDEknAWw_B2eb" : {
+          "additionalchange" : " Card 'testcard' had its description modified on Mon Mar 19 2018 16:42:32 GMT-0400 (EDT)"
+        },
+        "-L8--6G8jfH4mHls_CMW" : {
+          "additionalchange" : " Card 'testcard' had an image added to it on Mon Mar 19 2018 16:43:14 GMT-0400 (EDT)"
+        },
+        "-L8-DuiOQupMzLVzcbHX" : {
+          "additionalchange" : "New Card named: 'card1' was created on Mon Mar 19 2018 17:47:54 GMT-0400 (EDT)"
+        }
+      },
+      "color" : "orange"
+    }
+  },
+  "Users" : {
+    "-L7L3HXbjQ8GucC2Ur4b" : {
+      "email" : "pratikmulpury@gmail.com",
+      "imagetitle" : "newimage",
+      "loggedin" : true,
+      "url" : "https://firebasestorage.googleapis.com/v0/b/trello-290-28956.appspot.com/o/images%2Fxlarge.png?alt=media&token=b5237709-ec3e-4cc3-9923-9570f0e44f39",
+      "username" : "pratik"
+    },
+    "-L7L5rnYWogwBXsRfvUR" : {
+      "email" : "test2@hotmail.com",
+      "imagetitle" : "efnoianfea",
+      "loggedin" : true,
+      "url" : "https://firebasestorage.googleapis.com/v0/b/trello-290-28956.appspot.com/o/images%2Fxlarge.png?alt=media&token=9fa0dedd-c483-46f4-b757-72dcfcb0e6e7",
+      "username" : "test2"
+    }
+  }
+}
