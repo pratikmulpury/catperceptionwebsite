@@ -65,7 +65,6 @@ var app = new Vue({
             return filters.active(this.todos).length;
         }
         */
-
     },
 
     // methods that can be called from within HTML code, typically through input elements
