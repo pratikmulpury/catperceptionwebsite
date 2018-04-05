@@ -1,0 +1,266 @@
+{
+  "computersciencequiz" : {
+    "cssstylings" : {
+      "color" : "blue"
+    },
+    "question1" : {
+      "answered" : false,
+      "choices" : {
+        "choice1" : {
+          "correct" : true,
+          "selected" : false,
+          "text" : "Hyper Text Markup Language"
+        },
+        "choice2" : {
+          "correct" : false,
+          "selected" : false,
+          "text" : "Hyper Text Math Language"
+        },
+        "choice3" : {
+          "correct" : false,
+          "selected" : false,
+          "text" : "Hyper Text Memory Language"
+        },
+        "choice4" : {
+          "correct" : false,
+          "selected" : false,
+          "text" : "Hyper Time Memory Language"
+        }
+      },
+      "correct" : false,
+      "question" : "What does HTML stand for?"
+    },
+    "question2" : {
+      "answered" : false,
+      "choices" : {
+        "choices" : {
+          "choice1" : {
+            "correct" : false,
+            "selected" : false,
+            "text" : "=="
+          },
+          "choice2" : {
+            "correct" : false,
+            "selected" : false,
+            "text" : "==="
+          },
+          "choice3" : {
+            "correct" : true,
+            "selected" : false,
+            "text" : "!="
+          },
+          "choice4" : {
+            "correct" : false,
+            "selected" : false,
+            "text" : ":)"
+          }
+        }
+      },
+      "correct" : false,
+      "question" : "Which one of these means not equal to in javascript?"
+    },
+    "question3" : {
+      "answered" : false,
+      "choices" : {
+        "choice1" : {
+          "correct" : false,
+          "selected" : false,
+          "text" : "il"
+        },
+        "choice2" : {
+          "correct" : false,
+          "selected" : false,
+          "text" : "list"
+        },
+        "choice3" : {
+          "correct" : false,
+          "selected" : false,
+          "text" : "ul"
+        },
+        "choice4" : {
+          "correct" : true,
+          "selected" : false,
+          "text" : "ol"
+        }
+      },
+      "correct" : false,
+      "question" : "Which one of these tags can you use to make an ordered list"
+    }
+  },
+  "mathquiz" : {
+    "cssstylings" : {
+      "color" : "orange"
+    },
+    "question1" : {
+      "answered" : false,
+      "choices" : {
+        "choice1" : {
+          "correct" : false,
+          "selected" : false,
+          "text" : "2"
+        },
+        "choice2" : {
+          "correct" : false,
+          "selected" : false,
+          "text" : "3"
+        },
+        "choice3" : {
+          "correct" : false,
+          "selected" : false,
+          "text" : "4"
+        },
+        "choice4" : {
+          "correct" : true,
+          "selected" : false,
+          "text" : "5"
+        }
+      },
+      "correct" : false,
+      "question" : "What is 1 times 5"
+    },
+    "question2" : {
+      "answered" : false,
+      "choices" : {
+        "choices" : {
+          "choice1" : {
+            "correct" : false,
+            "selected" : false,
+            "text" : "5"
+          },
+          "choice2" : {
+            "correct" : false,
+            "selected" : false,
+            "text" : "4"
+          },
+          "choice3" : {
+            "correct" : true,
+            "selected" : false,
+            "text" : "2"
+          },
+          "choice4" : {
+            "correct" : false,
+            "selected" : false,
+            "text" : "3"
+          }
+        }
+      },
+      "correct" : false,
+      "question" : "What is 1 plus 1"
+    },
+    "question3" : {
+      "answered" : false,
+      "choices" : {
+        "choice1" : {
+          "correct" : false,
+          "selected" : false,
+          "text" : "3"
+        },
+        "choice2" : {
+          "correct" : false,
+          "selected" : false,
+          "text" : "2"
+        },
+        "choice3" : {
+          "correct" : false,
+          "selected" : false,
+          "text" : "1"
+        },
+        "choice4" : {
+          "correct" : true,
+          "selected" : false,
+          "text" : "0"
+        }
+      },
+      "correct" : false,
+      "question" : "What is 1 times 0"
+    }
+  },
+  "tennisquiz" : {
+    "cssstylings" : {
+      "color" : "green"
+    },
+    "question1" : {
+      "answered" : false,
+      "choices" : {
+        "choice1" : {
+          "correct" : true,
+          "selected" : false,
+          "text" : "Roger Federer"
+        },
+        "choice2" : {
+          "correct" : false,
+          "selected" : false,
+          "text" : "Rafa"
+        },
+        "choice3" : {
+          "correct" : false,
+          "selected" : false,
+          "text" : "Novak Djokovic"
+        },
+        "choice4" : {
+          "correct" : false,
+          "selected" : false,
+          "text" : "Andy Murray"
+        }
+      },
+      "correct" : false,
+      "question" : "Who has won the most grandslams in the atp?"
+    },
+    "question2" : {
+      "answered" : false,
+      "choices" : {
+        "choices" : {
+          "choice1" : {
+            "correct" : false,
+            "selected" : false,
+            "text" : "Roger Federer"
+          },
+          "choice2" : {
+            "correct" : true,
+            "selected" : false,
+            "text" : "Rafa"
+          },
+          "choice3" : {
+            "correct" : false,
+            "selected" : false,
+            "text" : "Bjorn Borg"
+          },
+          "choice4" : {
+            "correct" : false,
+            "selected" : false,
+            "text" : "Ivan Lendl"
+          }
+        }
+      },
+      "correct" : false,
+      "question" : "Who has won the most french opens in the atp?"
+    },
+    "question3" : {
+      "answered" : false,
+      "choices" : {
+        "choice1" : {
+          "correct" : false,
+          "selected" : false,
+          "text" : "Novak Djokovic"
+        },
+        "choice2" : {
+          "correct" : false,
+          "selected" : false,
+          "text" : "Pete Sampras"
+        },
+        "choice3" : {
+          "correct" : false,
+          "selected" : false,
+          "text" : "Bjorn Borg"
+        },
+        "choice4" : {
+          "correct" : true,
+          "selected" : false,
+          "text" : "Roger Federer"
+        }
+      },
+      "correct" : false,
+      "question" : "Who has won the most wimbledons in the atp?"
+    }
+  }
+}
