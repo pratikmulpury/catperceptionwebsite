@@ -17,7 +17,6 @@
         </div>
     </div>
 </template>
-
 <script>
     // export anonymous object from this module so it can be accessed by others when imported
     export default {
