@@ -1,0 +1,13 @@
+
+<div>
+    <button (click)="startWatch()">Start</button>
+    <button id = "button2" *ngIf = "timepassed>0" (click)="stopWatch()">Stop</button>
+    <button id = "button2" *ngIf = "timepassed>0" (click)="resetWatch()">Reset</button>
+
+    <br>
+    <br>
+    <label>Stopwatch:
+        <span> {{this.timepassed}} seconds passed</span>
+    </label>  
+  </div>
+  

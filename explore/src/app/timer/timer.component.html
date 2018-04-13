@@ -1,0 +1,14 @@
+
+<div>
+  <button (click)="startTimer()">Start</button>
+  <button id = "button2" *ngIf = "timertime>0" (click)="stopTimer()">Stop</button>
+  <button id = "button3" *ngIf = "timertime == 0 && display == true" (click)="resetTimer()">Reset</button>
+  <br>
+  <br>
+  <label>Timer:
+    <input [(ngModel)]="timertime" placeholder= "">
+  </label>  
+  <div *ngIf = "display" > 
+     <p>You have {{timertime}} seconds left</p> 
+  </div>
+</div>

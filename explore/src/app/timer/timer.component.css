@@ -1,0 +1,36 @@
+p
+{
+    color: #ECEAE0;
+}
+label
+{
+    color: #ECEAE0;
+}
+input{
+    background-color: #63AA9C;
+    text-align: center;
+    width: 66px;
+    border: none;
+    height:30px;
+    font-family:"Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    color: #ECEAE0;
+    cursor: pointer;
+}
+button {
+    background-color: grey; 
+    border: none;
+    color:#ECEAE0;
+    padding: 7px 16px;
+    text-align: center;
+    text-decoration: none;
+    font-family:"Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    font-size: 16px;
+}
+#button2
+{
+    margin-left: 5px;
+}
+#button3
+{
+    margin-left: 5px;
+}

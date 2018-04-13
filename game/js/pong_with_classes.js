@@ -507,7 +507,7 @@ var timeIntervalHandler = setInterval(function()
     else
     {
         var canvas2 = document.getElementById('gameCanvas');   
-        var ctx2 = this.canvas2.getContext('2d');     
+        var ctx2 = canvas2.getContext('2d');     
         ctx2.font = '16px Arial';
         ctx2.fillStyle = "#0A0A0A";
         ctx2.fillText("Press the Spacebar to Start the Game", canvas2.width/4 , canvas2.height / 2);

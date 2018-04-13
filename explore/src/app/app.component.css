@@ -1,0 +1,25 @@
+h1
+{
+    color: #ECEAE0;
+    font-family:"Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+}
+h2
+{
+    color: #63AA9C;
+    font-family:"Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+}
+ul
+{
+    color: #E9633B;
+}
+#corediv {
+    position: relative;
+    background-color: #221E1D;
+    height: 80%;
+    width: 80%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    margin-right: auto;
+    margin-left: auto;
+    border: 25px solid #ECEAE0;
+}
