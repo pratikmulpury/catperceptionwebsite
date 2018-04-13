@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy": "ng build --prod --base-href https://duke-compsci290-spring2018.github.io/assignments-portfolio-pratikmulpury/explore/ && angular-cli-ghpages --branch gh-pages" 
+    "deploy": "ng build --prod --base-href https://duke-compsci290-spring2018.github.io/assignments-portfolio-pratikmulpury/explore/dist && angular-cli-ghpages --branch gh-pages" 
   },
   "private": true,
   "dependencies": {
